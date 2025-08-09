@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Mimi Runner à Paris</title>
+  <style>
+    html,body{margin:0;height:100%;background:#1d1f21}
+    #gameCanvas{display:block;width:100vw;height:100vh}
+    .btn{position:fixed;bottom:16px;width:64px;height:64px;border-radius:50%;
+         background:#ffffff22;border:2px solid #ffffff66;backdrop-filter:blur(6px)}
+    #left{left:16px} #right{left:96px} #jump{right:16px}
+    .hud{position:fixed;top:10px;left:12px;color:#fff;font:600 18px system-ui,-apple-system,Segoe UI,Roboto,sans-serif;text-shadow:0 2px 2px rgba(0,0,0,.4)}
+    .timer{position:fixed;top:10px;right:12px;color:#fff;font:600 18px system-ui,-apple-system}
+    .overlay{
+      position:fixed;inset:0;display:flex;align-items:center;justify-content:center;
+      background:rgba(0,0,0,.45);backdrop-filter:blur(6px);color:#fff;flex-direction:column;gap:16px
+    }
+    .panel{background:#222;border:1px solid #555;padding:20px 24px;border-radius:12px;text-align:center}
+    .big{font:700 22px system-ui,-apple-system}
+    .cta{appearance:none;border:0;border-radius:10px;padding:12px 18px;font:600 16px system-ui,-apple-system;color:#111;background:#ffd34d}
+    .cta:active{transform:translateY(1px)}
+  </style>
+</head>
+<body>
+  <div class="hud" id="hud">Os: 0</div>
+  <div class="timer" id="timer">30s</div>
+  <canvas id="gameCanvas"></canvas>
+
+  <!-- commandes tactiles -->
+  <div id="left" class="btn"></div>
+  <div id="right" class="btn"></div>
+  <div id="jump" class="btn"></div>
+
+  <!-- Écran départ / fin -->
+  <div id="startOverlay" class="overlay" style="display:flex">
+    <div class="panel">
+      <div class="big">Mimi à Paris</div>
+      <p id="bigScore" class="big" style="display:none">Score : 0 os</p>
+      <p>Ramasse un max d’os en 30 secondes.<br/>Évite les trous et les chats.</p>
+      <button id="startBtn" class="cta">Nouvelle Partie</button>
+    </div>
+  </div>
+
+  <script src="main.js?v=19"></script>
+</body>
+</html>
